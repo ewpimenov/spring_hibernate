@@ -48,5 +48,5 @@ public class UserDaoImp implements UserDao {
         return  query.getResultList();
 
     }
-    //комментарий для гита
+    //комментарий для гита tot hf[ 
 }
