@@ -3,6 +3,7 @@ package hiber;
 import hiber.config.AppConfig;
 import hiber.model.Car;
 import hiber.model.User;
+import hiber.service.CarService;
 import hiber.service.UserService;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
@@ -15,19 +16,21 @@ public class MainApp {
                 new AnnotationConfigApplicationContext(AppConfig.class);
 
         UserService userService = context.getBean(UserService.class);
+        CarService carService = context.getBean(CarService.class);
 
         User user1 = new User("User1", "Lastname1", "user1@mail.ru");
         user1.setCar(new Car("Car1", 111));
         userService.add(user1);
 
-        User user2 = new User("User1", "Lastname2", "user2@mail.ru");
-        user1.setCar(new Car("Car2", 222));
+        User user2 = new User("User2", "Lastname2", "user2@mail.ru");
+        user2.setCar(new Car("Car2",222));
         userService.add(user2);
 
         User user3 = new User("User3", "Lastname3", "user3@mail.ru");
         user3.setCar(new Car("Car3", 333));
         userService.add(user3);
 
+        userService.getUserByNameBySeries("Car1", 111);// добавил метод по имени и серии переименовал
 
         List<User> users = userService.listUsers();
         for (User user : users) {
@@ -38,7 +41,7 @@ public class MainApp {
             System.out.println();
         }
 
-        List<Car> cars = userService.listCars();
+        List<Car> cars = carService.listCars();
         for (Car car : cars) {
             System.out.println("Id = " + car.getId());
             System.out.println("name = " + car.getName());
