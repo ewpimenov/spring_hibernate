@@ -9,5 +9,5 @@ public interface UserService {
     void add(User user);
     List<User> listUsers();
 
-    List<User> getUserByNameBySeriesCar(String name, int series);
+    List<User> getUserByCarNameAndCarSeries(String name, int series);
 }

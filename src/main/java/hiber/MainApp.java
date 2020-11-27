@@ -30,7 +30,7 @@ public class MainApp {
         user3.setCar(new Car("Car3", 333));
         userService.add(user3);
 
-        userService.getUserByNameBySeriesCar("Car1", 111);// добавил метод по имени и серии переименовал
+        userService.getUserByCarNameAndCarSeries("Car1", 111);// добавил метод по имени и серии переименовал
 
         List<User> users = userService.listUsers();
         for (User user : users) {
